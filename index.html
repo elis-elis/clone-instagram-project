@@ -7,27 +7,30 @@
         <link rel="stylesheet" href="css/main.css" />
     </head>
     <body>
+        <!-- Profile Container. Main wrapper -->
         <main class="profile">
-            <!-- Profile Header -->
+            <!-- Profile Header. Includes avatar + username/bio -->
             <header class="profile__header">
                 <div class="profile__avatar-container">
+                    <!-- Avatar image -->
                     <img
                         src="https://via.placeholder.com/80"
                         alt="Profile picture"
                         class="profile__avatar"
                     />
                 </div>
+                <!-- Text area of the header -->
                 <div class="profile__info">
-                    <h1 class="profile__username">Username</h1>
-                    <p class="profile__bio">
-                        Short bio goes here. This is the user's description.
-                    </p>
+                    <h1 class="profile__username">Name of the User</h1>
+                    <p class="profile__bio">Short bio goes here.</p>
                 </div>
             </header>
 
-            <!-- Gallery Section -->
+            <!-- Gallery wrapper. A child block called gallery -->
             <section class="profile__gallery gallery">
+                <!-- Gallery items. Each photo/card -->
                 <div class="gallery__item">
+                    <!-- Images inside. The actual photos -->
                     <img
                         src="https://via.placeholder.com/300"
                         alt="Gallery image 1"
