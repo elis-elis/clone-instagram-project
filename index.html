@@ -11,6 +11,24 @@
         />
     </head>
     <body>
+        <!-- Top Navigation -->
+        <nav class="navigation">
+            <div class="navigation__container">
+                <a href="#" class="navigation__logo">poeticaVENA</a>
+                <div class="navigation__menu">
+                    <a href="#" class="navigation__link">Home</a>
+                    <a href="#" class="navigation__link">Explore</a>
+                    <a href="#" class="navigation__link">Messages</a>
+                </div>
+                <button
+                    type="button"
+                    class="navigation__button navigation__button--logout"
+                >
+                    Logout
+                </button>
+            </div>
+        </nav>
+
         <!-- Profile Container. Main wrapper -->
         <main class="profile">
             <!-- Profile Header. Includes avatar + username/bio -->
@@ -31,7 +49,7 @@
                         Short bio goes here, if you want
                     </p>
                 </div>
-                <button type="button" class="profile-header__button">
+                <button type="button" class="profile-header__button--edit">
                     Edit Profile
                 </button>
             </header>
@@ -75,7 +93,7 @@
                         class="profile-gallery__image"
                     />
                     <img
-                        src="https://picsum.photos/304"
+                        src="https://picsum.photos/305"
                         alt="Gallery image 7"
                         class="profile-gallery__image"
                     />
