@@ -1,3 +1,5 @@
+/* CSS */
+
 /* Reset default styles */
 * {
     margin: 0;
@@ -38,18 +40,21 @@ body {
     font-size: 1.3rem;
     font-weight: bold;
     margin-bottom: 5px;
+    text-shadow: #0b300d 1px 0 6px;
+    color: #eef7ed;
 }
 
 .profile__bio {
-    font-size: 1rm;
+    font-size: 1rem;
     color: #666;
     margin-bottom: 10px;
+    text-shadow: 1px 1px 2px #9fb1c4;
 }
 
 .profile__button {
     padding: 10px 20px;
-    background-color: #9fb1c4;
-    color: #eef7ed;
+    background-color: #9fb1c4 0.3s ease;
+    color: #eef7ed 0.3s ease;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -61,24 +66,29 @@ body {
 }
 
 /* Gallery Block */
-.profile__gallery {
+.gallery {
 }
 
-.profile__gallery__title {
+.gallery__title {
     font-size: 1.2rem;
-    padding: 0 50px 10px;
+    padding: 0 30px 10px;
     font-weight: lighter;
+    color: #f0e1d3;
+    text-shadow: #0b300d 1px 0 6px;
 }
 
-.profile__gallery__grid {
+.gallery__grid {
     overflow: hidden;
     display: grid;
-    grid-template-columns: repeat(auto-fill);
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     padding: 1em 2em 2em;
 }
 
-.profile__gallery__image {
+.gallery__image {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
+}
+
+.profile__gallery {
 }
