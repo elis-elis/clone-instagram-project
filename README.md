@@ -1,6 +1,8 @@
 # Profile Page Project
 A mobile-first profile page built with Semantic HTML, BEM CSS, and JavaScript.
 
+![Screenshot](assets/assets/screenshot01.png)
+
 ## Project Overview
 Build a simplified Instagram clone that will evolve through different technologies per sprint:
 
