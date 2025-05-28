@@ -44,6 +44,7 @@ body {
 
 .profile-header__avatar:hover {
     transform: scale(1.05); /* Slight zoom on hover for interactivity */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 .profile-header__info {
@@ -68,11 +69,15 @@ body {
 .profile-header__button {
     padding: 10px 20px;
     background-color: #9fb1c4;
-    color: #eef7ed 0.3s ease;
+    color: #eef7ed;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease; /* Combined transitions */
+    box-shadow: 0 0 10px rgba(74, 124, 89, 0.3);
 }
 
 .profile-header__button:hover {
@@ -91,6 +96,7 @@ body {
     ); /* Gradient from beige to light green */
     border-radius: 10px;
     margin-top: 1rem;
+    box-shadow: 0 0 10px rgba(74, 124, 89, 0.3);
 }
 
 .profile-gallery__title {
@@ -113,9 +119,50 @@ body {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    border-radius: 4px;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .profile-gallery__image:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .profile-header {
+        padding: 20px;
+    }
+
+    .profile-header__avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-header__username {
+        font-size: 1.5rem;
+    }
+
+    .profile-header__bio {
+        font-size: 1rem;
+    }
+
+    .profile-gallery__grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .profile-gallery__title {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .profile-gallery__grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 0.8rem;
+    }
 }
