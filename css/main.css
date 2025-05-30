@@ -1,5 +1,5 @@
 /* CSS */
-@import url("./blocks/reset.css");
+@import url("./blocks/base.css");
 @import url("./blocks/navigation.css");
 @import url("./blocks/profile-header.css");
 @import url("./blocks/profile-gallery.css");
