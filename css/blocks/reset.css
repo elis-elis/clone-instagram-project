@@ -1,0 +1,21 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles for mobile */
+body {
+    font-family: "Inter", "Roboto", system-ui, sans-serif;
+    background-color: #242b22;
+    color: #0b300d;
+    line-height: 1.5;
+}
+
+/* Main container */
+.profile {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
