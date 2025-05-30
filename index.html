@@ -16,15 +16,12 @@
             <div class="navigation__container">
                 <a href="#" class="navigation__logo">poeticaVENA</a>
                 <div class="navigation__menu">
-                    <a href="#" class="navigation__link">Home</a>
-                    <a href="#" class="navigation__link">Explore</a>
-                    <a href="#" class="navigation__link">Messages</a>
+                    <a href="#" class="navigation__link">home</a>
+                    <a href="#" class="navigation__link">explore</a>
+                    <a href="#" class="navigation__link">messages</a>
                 </div>
-                <button
-                    type="button"
-                    class="navigation__button navigation__button--logout"
-                >
-                    Logout
+                <button type="button" class="navigation__button--logout">
+                    logout
                 </button>
             </div>
         </nav>
@@ -35,7 +32,7 @@
             <header class="profile-header">
                 <!-- Avatar image -->
                 <img
-                    src="https://picsum.photos/50"
+                    src="https://picsum.photos/80"
                     alt="Profile pic"
                     class="profile-header__avatar"
                 />
@@ -43,22 +40,27 @@
                 <!-- Text area of the header -->
                 <div class="profile-header__info">
                     <h1 class="profile-header__username">
-                        Imagine (your) name here
+                        imagine (your) name here
                     </h1>
                     <p class="profile-header__bio">
-                        Short bio goes here, if you want
+                        short bio goes here, if you want
                     </p>
                 </div>
                 <button type="button" class="profile-header__button--edit">
-                    Edit Profile
+                    edit your profile
                 </button>
             </header>
 
             <!-- Gallery wrapper -->
             <section class="profile-gallery">
-                <h2 class="profile-gallery__title">
-                    Your beautiful stuff goes below
-                </h2>
+                <div class="profile-gallery__header">
+                    <h2 class="profile-gallery__text">
+                        your beautiful stuff goes below
+                    </h2>
+                    <button type="button" class="profile-gallery__button--add">
+                        add image
+                    </button>
+                </div>
                 <!-- Gallery items. Each photo/card -->
                 <div class="profile-gallery__grid">
                     <!-- Images inside. The actual photos -->
@@ -98,7 +100,7 @@
                         class="profile-gallery__image"
                     />
                     <img
-                        src="https://picsum.photos/298"
+                        src="https://picsum.photos/297"
                         alt="Gallery image 8"
                         class="profile-gallery__image"
                     />

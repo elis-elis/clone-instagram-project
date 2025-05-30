@@ -10,7 +10,7 @@
 /* Base styles for mobile */
 body {
     font-family: "Inter", "Roboto", system-ui, sans-serif;
-    background-color: #9fb1c4;
+    background-color: #242b22;
     color: #0b300d;
     line-height: 1.5;
 }
@@ -46,6 +46,9 @@ body {
 }
 
 .navigation__menu {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
 }
 
 .navigation__link {
@@ -62,7 +65,7 @@ body {
 
 .navigation__button--logout {
     padding: 10px 20px;
-    background-color: #9fb1c4;
+    background-color: #242b22;
     color: #eef7ed;
     border: none;
     border-radius: 5px;
@@ -75,7 +78,9 @@ body {
 }
 
 .navigation__button--logout:hover {
-    background-color: #0b300d;
+    background-color: #f0e1d3;
+    color: #0b300d;
+    transform: scale(1.05);
 }
 
 /* Main container */
@@ -94,7 +99,7 @@ body {
     background-color: #f0e1d3;
     padding: 15px;
     box-shadow: 0 0 15px rgba(74, 124, 89, 0.5);
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .profile-header__avatar {
@@ -124,14 +129,14 @@ body {
 
 .profile-header__bio {
     font-size: 0.8rem;
-    color: #666;
+    color: #444;
     margin-bottom: 10px;
-    text-shadow: 1px 1px 2px #9fb1c4;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .profile-header__button--edit {
     padding: 10px 20px;
-    background-color: #9fb1c4;
+    background-color: #242b22;
     color: #eef7ed;
     border: none;
     border-radius: 5px;
@@ -157,18 +162,46 @@ body {
         #f0e1d3 0%,
         #d9e8d5 100%
     ); /* Gradient from beige to light green */
-    border-radius: 10px;
+    border-radius: 5px;
     margin-top: 1rem;
     box-shadow: 0 0 10px rgba(74, 124, 89, 0.3);
 }
 
-.profile-gallery__title {
+.profile-gallery__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}
+
+.profile-gallery__text {
     font-size: 1rem;
     padding: 0 30px 10px;
     font-weight: normal;
     color: #eef7ed;
     text-shadow: #0b300d 1px 0 6px;
     text-align: start;
+}
+
+.profile-gallery__button--add {
+    padding: 10px 20px;
+    background-color: #242b22;
+    color: #eef7ed;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease; /* Combined transitions */
+    box-shadow: 0 0 10px rgba(74, 124, 89, 0.3);
+}
+
+.profile-gallery__button--add:hover {
+    background-color: #f0e1d3;
+    color: #0b300d;
+    transform: scale(1.05);
 }
 
 .profile-gallery__grid {
