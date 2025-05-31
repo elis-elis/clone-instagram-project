@@ -1,7 +1,7 @@
 /* Navigation component */
 
 .navigation {
-    background-color: #f0e1d3;
+    background: linear-gradient(135deg, #f0e1d3 0%, #d9e8d5 100%);
     padding: 0.8rem 1rem;
     position: sticky;
     top: 0;
