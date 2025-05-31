@@ -11,5 +11,8 @@
   "description": "",
   "devDependencies": {
     "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.7"
   }
 }
