@@ -5,6 +5,7 @@
   "scripts": {
     "start": "live-server"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
