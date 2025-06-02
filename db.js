@@ -14,7 +14,7 @@ const db = new sqlite3.verbose().Database("./database.sqlite", (err) => {
 const schema = fs.readFileSync("./schemas/init.sql", "utf-8");
 db.exec(schema, (err) => {
   if (err) {
-    console.error("Failed to inititialze the database schema:", err.message);
+    console.error("Failed to inititialze the database schema:", err);
   } else {
     console.log("Databse schema initialized.");
   }
