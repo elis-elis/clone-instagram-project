@@ -6,11 +6,11 @@ CREATE TABLE IF OT EXISTS users(
     password_hash TEXT NOT NULL,
     bio TEXT,
     avatar_url TEXT,
-    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Posts Table
-CREATE TABLE IF OT EXISTS posts(
+CREATE TABLE IF NOT EXISTS posts(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
     image_url TEXT NOT NULL;
