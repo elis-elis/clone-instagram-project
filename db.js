@@ -1,24 +1,42 @@
 // db.js
 import sqlite3 from "sqlite3";
+import fs from "fs";
 
 // Create a new database or open existing one
-const db = new sqlite3.verbose().Database("./database.sqlite", (err) => {
-  if (err) {
-    console.error("Failed to connect to database:", err);
-  } else {
-    console.log("Connected to SQLite database.");
-  }
-});
+const db = new sqlite3.verbose().Database(
+  "./profile-page-project.db",
+  (err) => {
+    if (err) {
+      console.error("Failed to connect to database:", err.message);
+      process.exit(1); // Exit on failure
+    } else {
+      console.log("Connected to SQLite database: profile-page-project.db");
+    }
+  },
+);
 
 // Execute schema to initialize the tables
-const schema = fs.readFileSync("./schemas/init.sql", "utf-8");
-db.exec(schema, (err) => {
-  if (err) {
-    console.error("Failed to inititialze the database schema:", err);
-  } else {
-    console.log("Databse schema initialized.");
-  }
-});
+try {
+  const schema = fs.readFileSync("./schemas/init.sql", "utf-8");
+  db.exec(schema, (err) => {
+    if (err) {
+      console.error("Failed to inititialze the database schema:", err.message);
+    } else {
+      console.log("Databse schema initialized.");
+    }
+    db.close((err) => {
+      if (err) {
+        console.error("Error closing database:", err.message);
+      } else {
+        console.log("Databse connection colsed.");
+      }
+    });
+  });
+} catch (err) {
+  console.error("Error reading schema file:", err.message);
+  db.close();
+  process.exit(1);
+}
 
 // Reuse the same database instance
 module.exports = db;
