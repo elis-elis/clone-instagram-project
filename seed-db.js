@@ -121,8 +121,30 @@ db.serialize(() => {
           );
 
           // Insert a like
+          db.run(
+            `
+            INSERT OR IGNORE INTO likes (post_id, user_id)
+            VALUES (?, ?)
+          `,
+            [postId, userId],
+            (err) => {
+              if (err) {
+                console.error("Error inserting like:", err.message);
+              }
+            },
+          );
         },
       );
     },
   );
+
+  console.log("Seed data inserted.");
+});
+
+db.close((err) => {
+  if (err) {
+    console.error("Error closing database", err.message);
+  } else {
+    console.log("Database connection closed.");
+  }
 });
