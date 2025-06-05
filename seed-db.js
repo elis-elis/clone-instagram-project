@@ -4,8 +4,8 @@ db.serialize(() => {
   // Insert a user
   db.run(
     `
-  INSERT OR IGNORE INTO users (username, email, assword_hash, bio, avatar_url)
-  VALUES (?, ?, ?, ?, ?)
+    INSERT OR IGNORE INTO users (username, email, assword_hash, bio, avatar_url)
+    VALUES (?, ?, ?, ?, ?)
   `,
     [
       "lolita_user",
@@ -84,8 +84,8 @@ db.serialize(() => {
       posts.forEach((post) => {
         db.run(
           `
-          INSERT INTO posts (user_id, image_url, title, description)
-          VALUES (?, ?, ?, ?)
+            INSERT INTO posts (user_id, image_url, title, description)
+            VALUES (?, ?, ?, ?)
           `,
           [userId, post.image_url, post.title, post.description],
           (err) => {
@@ -97,6 +97,32 @@ db.serialize(() => {
       });
 
       // Insert a comment
+      db.get(
+        "SELECT id FROM posts WHERE image_url = ?",
+        ["https://picsum.photos/303"],
+        (err, row) => {
+          if (err) {
+            console.error("Error fetching post:", err.message);
+            return;
+          }
+
+          const postId = row.id;
+          db.run(
+            `
+            INSERT INTO comments (post_id, user_id, content)
+            VALUES (?, ?, ?)
+            `,
+            [postId, userId, "Looks fabulous!"],
+            (err) => {
+              if (err) {
+                console.error("Error inserting comment:", err.mesage);
+              }
+            },
+          );
+
+          // Insert a like
+        },
+      );
     },
   );
 });
