@@ -125,6 +125,8 @@ db.serialize(() => {
           }
 
           const postId = row.id;
+          console.log(`Fetched post ID: ${postId}`);
+
           db.run(
             `
             INSERT INTO comments (post_id, user_id, content)
@@ -134,6 +136,8 @@ db.serialize(() => {
             (err) => {
               if (err) {
                 console.error("Error inserting comment:", err.message);
+              } else {
+                console.log("Comment inserted");
               }
             },
           );
@@ -148,6 +152,8 @@ db.serialize(() => {
             (err) => {
               if (err) {
                 console.error("Error inserting like:", err.message);
+              } else {
+                console.log("Like inserted");
               }
             },
           );

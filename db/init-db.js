@@ -3,7 +3,7 @@ const sqlite3 = require("sqlite3").verbose();
 const fs = require("fs");
 
 // Create or open the database
-const db = new sqlite3.Database("./profile-page-project.db", (err) => {
+const db = new sqlite3.Database("./db/profile-page-project.db", (err) => {
   if (err) {
     console.error("Failed to connect to database:", err.message);
     process.exit(1);
