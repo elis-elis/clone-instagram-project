@@ -4,19 +4,20 @@ db.serialize(() => {
   // Insert a user
   db.run(
     `
-    INSERT OR IGNORE INTO users (username, email, assword_hash, bio, avatar_url)
+    INSERT OR IGNORE INTO users (username, email, password_hash, bio, avatar_url)
     VALUES (?, ?, ?, ?, ?)
   `,
     [
       "lolita_user",
       "lolita@example.de",
-      'lolita"s_hashed_password_0101',
-      'Lolita"s bio goes here, if she wants',
+      "lolita's_hashed_password_0101",
+      "Lolita's bio goes here, if she wants",
       "https://picsum.photos/50",
     ],
     (err) => {
       if (err) {
         console.error("Error inserting user:", err.message);
+        return;
       }
     },
   );
@@ -30,7 +31,12 @@ db.serialize(() => {
         console.error("Error fetching user:", err.message);
         return;
       }
+      if (!row) {
+        console.error("User nor found: lolita_user");
+        return;
+      }
       const userId = row.id;
+      console.log(`Fetched user ID: ${userId}`);
 
       // Insert posts
       const posts = [
@@ -81,6 +87,8 @@ db.serialize(() => {
         },
       ];
 
+      let pendingOperations = posts.length + 2; // Posts + comment + like
+
       posts.forEach((post) => {
         db.run(
           `
@@ -90,7 +98,13 @@ db.serialize(() => {
           [userId, post.image_url, post.title, post.description],
           (err) => {
             if (err) {
-              console.error("Error instering post:", err.message);
+              console.error("Error insetring post:", err.message);
+            } else {
+              console.log();
+              console.log(`Post inserted: ${post.title}`);
+            }
+            if (--pendingOperations === 0) {
+              closeDatabase();
             }
           },
         );
@@ -105,6 +119,10 @@ db.serialize(() => {
             console.error("Error fetching post:", err.message);
             return;
           }
+          if (!row) {
+            console.error("Post not found: https://picsum.photos/303");
+            return;
+          }
 
           const postId = row.id;
           db.run(
@@ -115,7 +133,7 @@ db.serialize(() => {
             [postId, userId, "Looks fabulous!"],
             (err) => {
               if (err) {
-                console.error("Error inserting comment:", err.mesage);
+                console.error("Error inserting comment:", err.message);
               }
             },
           );
@@ -141,10 +159,13 @@ db.serialize(() => {
   console.log("Seed data inserted.");
 });
 
-db.close((err) => {
-  if (err) {
-    console.error("Error closing database", err.message);
-  } else {
-    console.log("Database connection closed.");
-  }
-});
+// Close the database after all operations
+function closeDatabase() {
+  db.close((err) => {
+    if (err) {
+      console.error("Error closing database", err.message);
+    } else {
+      console.log("Database connection closed.");
+    }
+  });
+}
